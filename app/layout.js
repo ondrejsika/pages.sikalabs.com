@@ -65,6 +65,7 @@ export default function RootLayout({ children }) {
             border-radius: 6px;
             overflow-x: auto;
             margin: 1em 0;
+            position: relative;
           }
 
           pre code {
@@ -152,7 +153,11 @@ export default function RootLayout({ children }) {
               {children}
             </div>
             <footer>
+              <a href="https://sika.io" target="_blank" rel="noopener noreferrer">sika.io</a>
+              {' | '}
               <a href="https://sikalabs.com" target="_blank" rel="noopener noreferrer">sikalabs.com</a>
+              {' | '}
+              <a href="https://github.com/ondrejsika" target="_blank" rel="noopener noreferrer">github.com/ondrejsika</a>
               {' | '}
               <a href="https://github.com/sikalabs" target="_blank" rel="noopener noreferrer">github.com/sikalabs</a>
             </footer>
