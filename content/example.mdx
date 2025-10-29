@@ -1,0 +1,128 @@
+# MDX Example Page
+
+Welcome to the **comprehensive example** showcasing the power of MDX! This page demonstrates how you can combine Markdown with React components.
+
+<InfoBox title="What is MDX?" type="info">
+MDX allows you to use JSX and React components directly in your markdown content. Write content naturally while adding interactive elements where needed.
+</InfoBox>
+
+## Markdown Basics
+
+MDX supports all standard Markdown syntax. Here's what you can do:
+
+### Text Formatting
+
+You can use **bold text**, *italic text*, ~~strikethrough~~, and `inline code`.
+
+### Lists
+
+**Unordered lists:**
+- Simple and clean syntax
+- Easy to read and write
+- Perfect for documentation
+  - Nested items work too
+  - Just indent with spaces
+
+**Ordered lists:**
+1. First item
+2. Second item
+3. Third item
+
+### Code Blocks
+
+```javascript
+// JavaScript code with syntax highlighting
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+  return true;
+}
+
+greet('World');
+```
+
+```bash
+# Shell commands
+npm install
+npm run dev
+```
+
+## Tables
+
+MDX automatically renders markdown tables as beautiful HTML tables:
+
+| Feature | Support | Notes |
+|---------|---------|-------|
+| Markdown | ✓ | Full GFM support |
+| React Components | ✓ | Import and use anywhere |
+| Syntax Highlighting | ✓ | Code blocks with colors |
+| Tables | ✓ | Clean and responsive |
+| Links | ✓ | Internal and external |
+
+## React Components
+
+This is where MDX really shines! You can use interactive React components:
+
+### Info Boxes
+
+<InfoBox title="Info" type="info">
+Use info boxes to highlight important information for your readers.
+</InfoBox>
+
+<InfoBox title="Success" type="success">
+Success messages for positive feedback and confirmations.
+</InfoBox>
+
+<InfoBox title="Warning" type="warning">
+Warnings help draw attention to critical information that users should be careful about.
+</InfoBox>
+
+<InfoBox title="Error" type="error">
+Error messages for things that went wrong or require immediate attention.
+</InfoBox>
+
+### Interactive Buttons
+
+Buttons can trigger actions when clicked:
+
+<div style={{ display: 'flex', gap: '10px', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
+  <Button variant="primary">Primary Action</Button>
+  <Button variant="secondary">Secondary Action</Button>
+</div>
+
+## Links
+
+You can link to other pages: [Home](/) | [My New Page](/mynewpage) | [Terraform](/terraform)
+
+External links work too: [SikaLabs](https://sikalabs.com) | [GitHub](https://github.com/sikalabs)
+
+## Blockquotes
+
+> MDX combines the simplicity of Markdown with the power of React.
+> This makes it perfect for creating rich, interactive documentation and content sites.
+
+## Getting Started
+
+Want to create a page like this? Just add a `.mdx` file to the `content/` folder:
+
+```bash
+# Create a new page
+echo "# My Page" > content/mypage.mdx
+```
+
+Then visit `/mypage` and your content is live!
+
+<InfoBox title="Pro Tip" type="success">
+You can use React components without importing them. They're automatically available in all your MDX files!
+</InfoBox>
+
+## Horizontal Rules
+
+Use horizontal rules to separate sections:
+
+---
+
+*This example page is located at: `content/example.mdx`*
+
+<div style={{ marginTop: '40px', textAlign: 'center' }}>
+  <Button variant="primary">Get Started Now</Button>
+</div>
