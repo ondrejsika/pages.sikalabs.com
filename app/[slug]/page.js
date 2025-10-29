@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import { notFound } from 'next/navigation';
 import Button from '../../components/Button';
 import InfoBox from '../../components/InfoBox';
+import CodeBlock from '../../components/CodeBlock';
 
 export default async function Page({ params }) {
   const { slug } = await params;
@@ -22,6 +23,7 @@ export default async function Page({ params }) {
     components: {
       Button,
       InfoBox,
+      pre: CodeBlock,
     },
     options: {
       parseFrontmatter: true,
