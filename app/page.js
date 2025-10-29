@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'pages.sikalabs.com',
+};
+
 export default function Home() {
   return (
     <main style={{
