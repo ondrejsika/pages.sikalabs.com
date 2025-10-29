@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation';
 import Button from '../../components/Button';
 import InfoBox from '../../components/InfoBox';
 import CodeBlock from '../../components/CodeBlock';
+import TrainingAd from '../../components/TrainingAd';
+import TerraformTrainingAd from '../../components/TerraformTrainingAd';
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
@@ -65,6 +67,8 @@ export default async function Page({ params }) {
     components: {
       Button,
       InfoBox,
+      TrainingAd,
+      TerraformTrainingAd,
       pre: CodeBlock,
     },
     options: {
