@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
             padding: 0.2em 0.4em;
             border-radius: 3px;
             font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+            font-size: 1.1em;
           }
 
           pre {
@@ -72,6 +72,7 @@ export default function RootLayout({ children }) {
             background: none;
             padding: 0;
             color: inherit;
+            font-size: 1.1em;
           }
 
           ul, ol {
