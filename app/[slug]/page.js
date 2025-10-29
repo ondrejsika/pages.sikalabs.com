@@ -7,6 +7,48 @@ import Button from '../../components/Button';
 import InfoBox from '../../components/InfoBox';
 import CodeBlock from '../../components/CodeBlock';
 
+// Generate metadata for the page
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), 'content', `${slug}.mdx`);
+
+  if (!fs.existsSync(filePath)) {
+    return {
+      title: 'Page Not Found | pages.sikalabs.com',
+    };
+  }
+
+  const source = fs.readFileSync(filePath, 'utf-8');
+
+  // Try to get title from frontmatter or extract from H1
+  const { frontmatter } = await compileMDX({
+    source,
+    options: {
+      parseFrontmatter: true,
+    },
+  });
+
+  let title = '';
+
+  // If frontmatter has a title, use it
+  if (frontmatter?.title) {
+    title = frontmatter.title;
+  } else {
+    // Otherwise, extract the first H1 heading from the content
+    const h1Match = source.match(/^#\s+(.+)$/m);
+    if (h1Match) {
+      title = h1Match[1];
+    } else {
+      // Fallback to slug
+      title = slug.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+    }
+  }
+
+  return {
+    title: `${title} | pages.sikalabs.com`,
+  };
+}
+
 export default async function Page({ params }) {
   const { slug } = await params;
   const filePath = path.join(process.cwd(), 'content', `${slug}.mdx`);
