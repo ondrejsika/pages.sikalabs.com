@@ -3,7 +3,7 @@ import TrainingAd from './TrainingAd';
 export default function KubernetesTrainingAd() {
   return (
     <TrainingAd
-      title="Školení Kubernetes (od Ondřeje Šiky)"
+      title="Školení Kubernetes od Ondřeje Šiky"
       description="Chcete se naučit Kubernetes? Nabízím komplexní školení Kubernetes s praktickými příklady a tipy z praxe."
       link="https://ondrej-sika.cz/skoleni/kubernetes"
       linkText="Zjistit více o školení"
