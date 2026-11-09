@@ -160,7 +160,8 @@ export default function RootLayout({ children }) {
           }
         `}</style>
       </head>
-      <body>
+      {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) add attributes to <body> */}
+      <body suppressHydrationWarning>
         {!isHomepage ? (
           <>
             <div className="content-wrapper">
