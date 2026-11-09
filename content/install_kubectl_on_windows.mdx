@@ -1,0 +1,49 @@
+[Install Kubectl](/install_kubectl)
+
+# Install Kubectl on Windows
+
+<InfoBox title="Better to use WSL2 and Linux" type="info">
+You can install kubectl natively on Windows, but it's better to use [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) with Linux (Ubuntu) and follow [Install Kubectl on Linux](/install_kubectl_on_linux) inside WSL2.
+</InfoBox>
+
+## Using winget
+
+```powershell
+winget install -e --id Kubernetes.kubectl
+```
+
+## Install Kubectl binary from official docs
+
+Based on the official Kubernetes docs: [Install kubectl on Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+### Download the release
+
+```powershell
+curl.exe -LO "https://dl.k8s.io/release/v1.37.2/bin/windows/amd64/kubectl.exe"
+```
+
+To find out the latest stable version, take a look at [https://dl.k8s.io/release/stable.txt](https://dl.k8s.io/release/stable.txt) and replace `v1.37.2` in the URL.
+
+### Validate the binary (optional)
+
+Download the checksum file:
+
+```powershell
+curl.exe -LO "https://dl.k8s.io/v1.37.2/bin/windows/amd64/kubectl.exe.sha256"
+```
+
+Validate the binary against the checksum using PowerShell (prints `True` if valid):
+
+```powershell
+$(Get-FileHash -Algorithm SHA256 .\kubectl.exe).Hash -eq $(Get-Content .\kubectl.exe.sha256)
+```
+
+### Install kubectl
+
+Append or prepend the folder with `kubectl.exe` to your `PATH` environment variable.
+
+### Verify Installation
+
+```powershell
+kubectl version --client
+```
