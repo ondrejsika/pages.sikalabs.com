@@ -9,6 +9,7 @@ import CodeBlock from '../../components/CodeBlock';
 import TrainingAd from '../../components/TrainingAd';
 import TerraformTrainingAd from '../../components/TerraformTrainingAd';
 import KubernetesTrainingAd from '../../components/KubernetesTrainingAd';
+import VaultTrainingAd from '../../components/VaultTrainingAd';
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
@@ -71,6 +72,7 @@ export default async function Page({ params }) {
       TrainingAd,
       TerraformTrainingAd,
       KubernetesTrainingAd,
+      VaultTrainingAd,
       pre: CodeBlock,
     },
     options: {

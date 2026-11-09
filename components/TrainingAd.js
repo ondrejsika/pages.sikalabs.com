@@ -8,6 +8,7 @@ export default function TrainingAd({
   background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   accentColor = '#667eea',
   shadowColor = 'rgba(102, 126, 234, 0.3)',
+  textColor = 'white',
 }) {
   return (
     <div style={{
@@ -16,7 +17,7 @@ export default function TrainingAd({
       padding: '24px',
       marginTop: '128px',
       marginBottom: '32px',
-      color: 'white',
+      color: textColor,
       boxShadow: `0 10px 25px ${shadowColor}`,
     }}>
       <div style={{
