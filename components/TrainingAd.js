@@ -14,7 +14,7 @@ export default function TrainingAd({
       background,
       borderRadius: '12px',
       padding: '24px',
-      marginTop: '48px',
+      marginTop: '128px',
       marginBottom: '32px',
       color: 'white',
       boxShadow: `0 10px 25px ${shadowColor}`,
