@@ -51,6 +51,11 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${title} | pages.sikalabs.com`,
+    alternates: {
+      types: {
+        'text/markdown': `https://pages.sikalabs.com/${slug}.md`,
+      },
+    },
   };
 }
 

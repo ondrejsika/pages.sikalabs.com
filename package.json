@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "generate-md": "node scripts/generate-md.mjs",
+    "predev": "npm run generate-md",
     "dev": "next dev",
+    "prebuild": "npm run generate-md",
     "build": "next build",
+    "prebuild:static": "npm run generate-md",
     "build:static": "next build",
     "start": "next start",
     "lint": "next lint"

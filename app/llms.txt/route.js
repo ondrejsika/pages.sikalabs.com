@@ -14,7 +14,7 @@ export function GET() {
     '',
     '## Pages',
     '',
-    ...pages.map(({ slug, title }) => `- [${title}](${BASE_URL}/${slug})`),
+    ...pages.map(({ slug, title }) => `- [${title}](${BASE_URL}/${slug}.md)`),
     '',
   ].join('\n');
 
