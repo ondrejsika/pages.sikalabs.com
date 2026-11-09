@@ -82,6 +82,9 @@ export default async function Page({ params }) {
   return <>{content}</>;
 }
 
+// Only slugs from generateStaticParams are valid; anything else (e.g. /favicon.ico) is a 404
+export const dynamicParams = false;
+
 // Generate static params for all MDX files
 export async function generateStaticParams() {
   const contentDir = path.join(process.cwd(), 'content');
