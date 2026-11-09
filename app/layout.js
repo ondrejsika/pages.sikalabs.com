@@ -177,6 +177,8 @@ export default function RootLayout({ children }) {
               <a href="https://github.com/sikalabs" target="_blank" rel="noopener noreferrer">github.com/sikalabs</a>
               {' | '}
               <a href="/all">all pages</a>
+              {' | '}
+              <a href="/llms.txt">llms.txt</a>
             </footer>
           </>
         ) : (
