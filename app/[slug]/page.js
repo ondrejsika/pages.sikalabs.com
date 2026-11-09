@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Button from '../../components/Button';
 import InfoBox from '../../components/InfoBox';
 import CodeBlock from '../../components/CodeBlock';
+import MdxLink from '../../components/MdxLink';
 import TrainingAd from '../../components/TrainingAd';
 import TerraformTrainingAd from '../../components/TerraformTrainingAd';
 import KubernetesTrainingAd from '../../components/KubernetesTrainingAd';
@@ -74,6 +75,7 @@ export default async function Page({ params }) {
       KubernetesTrainingAd,
       VaultTrainingAd,
       pre: CodeBlock,
+      a: MdxLink,
     },
     options: {
       parseFrontmatter: true,
