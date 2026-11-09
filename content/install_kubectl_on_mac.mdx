@@ -17,3 +17,51 @@ Check that kubectl is installed correctly:
 ```bash
 kubectl version --client
 ```
+
+## Install Kubectl binary from official docs
+
+Based on the official Kubernetes docs: [Install kubectl on macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+### Download the latest release
+
+On Apple Silicon:
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl"
+```
+
+On Intel:
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/kubectl"
+```
+
+### Validate the binary (optional)
+
+Download the checksum file for your architecture (Apple Silicon shown, replace `arm64` with `amd64` on Intel):
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl.sha256"
+```
+
+Validate the binary against the checksum:
+
+```bash
+echo "$(cat kubectl.sha256)  kubectl" | shasum -a 256 --check
+```
+
+If valid, the output is `kubectl: OK`.
+
+### Install kubectl
+
+```bash
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+sudo chown root: /usr/local/bin/kubectl
+```
+
+### Verify Installation
+
+```bash
+kubectl version --client
+```

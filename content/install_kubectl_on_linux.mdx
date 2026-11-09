@@ -13,3 +13,49 @@ Or with short command:
 ```
 slu ib kubectl
 ```
+
+## Install Kubectl binary from official docs
+
+Based on the official Kubernetes docs: [Install kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+### Download the latest release
+
+On x86-64 (amd64):
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+On ARM64:
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+```
+
+### Validate the binary (optional)
+
+Download the checksum file for your architecture (amd64 shown, replace with `arm64` on ARM):
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+```
+
+Validate the binary against the checksum:
+
+```bash
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+```
+
+If valid, the output is `kubectl: OK`.
+
+### Install kubectl
+
+```bash
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+### Verify Installation
+
+```bash
+kubectl version --client
+```
