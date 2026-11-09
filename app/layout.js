@@ -39,6 +39,19 @@ export default function RootLayout({ children }) {
             margin-bottom: 1em;
           }
 
+          .button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+          }
+
+          .button-cta {
+            margin-top: 40px;
+            text-align: center;
+          }
+
           a {
             color: #0066cc;
             text-decoration: none;
