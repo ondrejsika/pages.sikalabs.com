@@ -1,15 +1,23 @@
 'use client';
 
-export default function TrainingAd({ title, description, link, linkText = "Vice informaci" }) {
+export default function TrainingAd({
+  title,
+  description,
+  link,
+  linkText = "Vice informaci",
+  background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  accentColor = '#667eea',
+  shadowColor = 'rgba(102, 126, 234, 0.3)',
+}) {
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background,
       borderRadius: '12px',
       padding: '24px',
       marginTop: '48px',
       marginBottom: '32px',
       color: 'white',
-      boxShadow: '0 10px 25px rgba(102, 126, 234, 0.3)',
+      boxShadow: `0 10px 25px ${shadowColor}`,
     }}>
       <div style={{
         fontSize: '1.3em',
@@ -33,7 +41,7 @@ export default function TrainingAd({ title, description, link, linkText = "Vice 
         style={{
           display: 'inline-block',
           background: 'white',
-          color: '#667eea',
+          color: accentColor,
           padding: '10px 24px',
           borderRadius: '6px',
           textDecoration: 'none',

@@ -8,6 +8,7 @@ import InfoBox from '../../components/InfoBox';
 import CodeBlock from '../../components/CodeBlock';
 import TrainingAd from '../../components/TrainingAd';
 import TerraformTrainingAd from '../../components/TerraformTrainingAd';
+import KubernetesTrainingAd from '../../components/KubernetesTrainingAd';
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
@@ -69,6 +70,7 @@ export default async function Page({ params }) {
       InfoBox,
       TrainingAd,
       TerraformTrainingAd,
+      KubernetesTrainingAd,
       pre: CodeBlock,
     },
     options: {
