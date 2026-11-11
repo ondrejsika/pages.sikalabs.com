@@ -99,7 +99,7 @@ export default function RootLayout({ children }) {
           }
 
           li {
-            margin-bottom: 0.5em;
+            margin-bottom: 0.2em;
           }
 
           table {
