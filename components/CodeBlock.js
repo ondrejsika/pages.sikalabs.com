@@ -1,23 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
-export default function CodeBlock({ children, className, ...props }) {
+export default function CodeBlock({ children, ...props }) {
   const [copied, setCopied] = useState(false);
-
-  // Extract the code content from children
-  const getCodeContent = () => {
-    if (typeof children === 'string') {
-      return children;
-    }
-    if (children?.props?.children) {
-      return children.props.children;
-    }
-    return '';
-  };
+  const preRef = useRef(null);
 
   const handleCopy = async () => {
-    const code = getCodeContent();
+    // Read the rendered text, children are highlighted <span>s
+    const code = preRef.current?.querySelector('code')?.textContent ?? '';
     // Remove trailing newlines
     const trimmedCode = code.replace(/\n+$/, '');
     try {
@@ -30,7 +21,7 @@ export default function CodeBlock({ children, className, ...props }) {
   };
 
   return (
-    <pre {...props} style={{ position: 'relative', ...props.style }}>
+    <pre ref={preRef} {...props} style={{ position: 'relative', ...props.style }}>
       <button
         onClick={handleCopy}
         style={{
@@ -62,7 +53,7 @@ export default function CodeBlock({ children, className, ...props }) {
       >
         {copied ? 'Copied!' : 'Copy'}
       </button>
-      <code className={className}>{children}</code>
+      {children}
     </pre>
   );
 }

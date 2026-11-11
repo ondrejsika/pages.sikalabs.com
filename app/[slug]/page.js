@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import rehypeShiki from '@shikijs/rehype';
 import { notFound } from 'next/navigation';
 import Button from '../../components/Button';
 import InfoBox from '../../components/InfoBox';
@@ -86,6 +87,7 @@ export default async function Page({ params }) {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
+        rehypePlugins: [[rehypeShiki, { theme: 'github-dark', defaultLanguage: 'text', fallbackLanguage: 'text' }]],
       },
     },
   });
