@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           }
 
           h1 { font-size: 2.5em; margin-top: 0; }
-          h2 { font-size: 2em; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.3em; }
+          h2 { font-size: 2em; }
           h3 { font-size: 1.5em; }
 
           p {
