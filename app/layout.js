@@ -83,6 +83,7 @@ export default function RootLayout({ children }) {
             overflow-x: auto;
             margin: 1em 0;
             position: relative;
+            line-height: 1.1;
           }
 
           pre code {
