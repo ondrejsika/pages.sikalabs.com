@@ -1,0 +1,58 @@
+# What is Terraform?
+
+## What is Terraform?
+
+Terraform is an Infrastructure as Code (IaC) tool from HashiCorp. You describe your infrastructure (servers, networks, DNS records, Kubernetes clusters, ...) in code, and Terraform creates, updates, and deletes it for you.
+
+Terraform works with almost any cloud or service, such as AWS, Azure, Google Cloud, DigitalOcean, Cloudflare, Kubernetes, or Vault, using plugins called **providers**.
+
+## How Does Terraform Work?
+
+You write the configuration in HCL (HashiCorp Configuration Language) in `.tf` files:
+
+```hcl
+resource "slc_vm" "gitlab" {
+  name  = "gitlab"
+  image = "debian-13"
+  size  = "4vcpus-8gb"
+  disk_size = "100gb"
+}
+
+resource "slc_dns_record" "gitlab" {
+  zone_id = "sikademo.com"
+  name = "gitlab"
+  type = "A"
+  value = slc_vm.gitlab.ip
+}
+
+resource "slc_dns_record" "gitlab_registry" {
+  zone_id = "sikademo.com"
+  name = "gitlab-registry"
+  type = "CNAME"
+  value = slc_dns_record.gitlab.fqdn
+}
+```
+
+## Why Use Terraform?
+
+- **Declarative** - you describe the desired state, Terraform figures out how to get there
+- **Reproducible** - the same code creates the same infrastructure every time
+- **Reviewable** - infrastructure changes go through Git and code review like any other code
+- **Multi-cloud** - one tool and one language for many providers
+- **Reusable** - share common setups as **modules**
+
+## Install Terraform
+
+- [Install Terraform](/install_terraform)
+
+## FAQ
+
+### Is Terraform free to use?
+
+**Yes**, Terraform CLI is free to use. Since version 1.6, it is licensed under the Business Source License (BSL), which allows most use cases except building a competing commercial product.
+
+### Is Terraform open-source?
+
+**No**, not anymore. Since version 1.6 Terraform uses the Business Source License (BSL), which is source-available, but not open-source. Older versions (1.5 and earlier) are open-source under the MPL 2.0 license. If you need an open-source alternative, there is [OpenTofu](https://opentofu.org), a fork of Terraform maintained by the Linux Foundation.
+
+<TerraformTrainingAd />
