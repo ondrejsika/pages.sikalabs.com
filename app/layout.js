@@ -33,6 +33,10 @@ export default function RootLayout({ children }) {
 
           h1 { font-size: 2.5em; margin-top: 0; }
           h2 { font-size: 2em; }
+
+          /* less space when a heading directly follows another heading or a code block */
+          :is(h1, h2, h3, h4, h5, h6) + :is(h2, h3, h4, h5, h6) { margin-top: 0.5em; }
+          pre + :is(h2, h3, h4, h5, h6) { margin-top: 1em; }
           h3 { font-size: 1.5em; }
 
           p {
