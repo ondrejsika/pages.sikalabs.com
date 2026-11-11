@@ -16,7 +16,6 @@ resource "digitalocean_droplet" "gitlab" {
   region     = "fra1"
   image      = "debian-13-x64"
   size       = "s-4vcpu-8gb"
-  volume_ids = [digitalocean_volume.gitlab.id]
 }
 
 resource "digitalocean_record" "gitlab" {
