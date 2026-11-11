@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import DevReload from '../components/DevReload';
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -184,6 +185,7 @@ export default function RootLayout({ children }) {
       </head>
       {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) add attributes to <body> */}
       <body suppressHydrationWarning>
+        {process.env.NODE_ENV === 'development' && <DevReload />}
         {!isHomepage ? (
           <>
             <header>
