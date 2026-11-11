@@ -11,25 +11,26 @@ Terraform works with almost any cloud or service, such as AWS, Azure, Google Clo
 You write the configuration in HCL (HashiCorp Configuration Language) in `.tf` files:
 
 ```hcl
-resource "slc_vm" "gitlab" {
-  name  = "gitlab"
-  image = "debian-13"
-  size  = "4vcpus-8gb"
-  disk_size = "100gb"
+resource "digitalocean_droplet" "gitlab" {
+  name       = "gitlab"
+  region     = "fra1"
+  image      = "debian-13-x64"
+  size       = "s-4vcpu-8gb"
+  volume_ids = [digitalocean_volume.gitlab.id]
 }
 
-resource "slc_dns_record" "gitlab" {
-  zone_id = "sikademo.com"
-  name = "gitlab"
-  type = "A"
-  value = slc_vm.gitlab.ip
+resource "digitalocean_record" "gitlab" {
+  domain = "sikademo.com"
+  name   = "gitlab"
+  type   = "A"
+  value  = digitalocean_droplet.gitlab.ipv4_address
 }
 
-resource "slc_dns_record" "gitlab_registry" {
-  zone_id = "sikademo.com"
-  name = "gitlab-registry"
-  type = "CNAME"
-  value = slc_dns_record.gitlab.fqdn
+resource "digitalocean_record" "gitlab_registry" {
+  domain = "sikademo.com"
+  name   = "gitlab-registry"
+  type   = "CNAME"
+  value  = "${digitalocean_record.gitlab.fqdn}."
 }
 ```
 
