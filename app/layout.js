@@ -139,12 +139,29 @@ export default function RootLayout({ children }) {
 
           .content-wrapper {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 20px auto 40px auto;
             padding: 20px 20px 40px 20px;
             background: white;
             min-height: calc(100vh - 200px);
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
             border-radius: 8px;
+          }
+
+          header {
+            text-align: center;
+            padding: 20px 20px 0 20px;
+            color: #666;
+            font-size: 1.2em;
+          }
+
+          header a {
+            color: #666;
+            font-weight: 600;
+            margin: 0 10px;
+          }
+
+          header a:hover {
+            color: #333;
           }
 
           footer {
@@ -168,6 +185,11 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         {!isHomepage ? (
           <>
+            <header>
+              <a href="https://sikalabs.com" target="_blank" rel="noopener noreferrer">SikaLabs (sikalabs.com)</a>
+              {' | '}
+              <a href="https://sika.io" target="_blank" rel="noopener noreferrer">Ondrej Sika (sika.io)</a>
+            </header>
             <div className="content-wrapper">
               {children}
             </div>
